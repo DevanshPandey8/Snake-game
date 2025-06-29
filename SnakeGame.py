@@ -23,7 +23,7 @@ def reset():
 
 
 def move_snake():
-    global snake_direction
+    global snake, snake_direction
 
     #  Next position for head of snake.
     new_head = snake[-1].copy()
@@ -65,7 +65,7 @@ def move_snake():
 
 
 def food_collision():
-    global food_pos
+    global snake, food_pos
     if get_distance(snake[-1], food_pos) < 20:
         food_pos = get_random_food_pos()
         food.goto(food_pos)
@@ -74,8 +74,8 @@ def food_collision():
 
 
 def get_random_food_pos():
-    x = random.randint(- WIDTH / 2 + FOOD_SIZE, WIDTH / 2 - FOOD_SIZE)
-    y = random.randint(- HEIGHT / 2 + FOOD_SIZE, HEIGHT / 2 - FOOD_SIZE)
+    x = random.randint(- WIDTH // 2 + FOOD_SIZE, WIDTH // 2 - FOOD_SIZE)
+    y = random.randint(- HEIGHT // 2 + FOOD_SIZE, HEIGHT // 2 - FOOD_SIZE)
     return (x, y)
 
 
